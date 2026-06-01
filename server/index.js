@@ -6,26 +6,14 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import rateLimit from "express-rate-limit";
 
-
-// --- IMPORTACIONES PARA SERVIR EL CLIENTE ---
-import path from 'path';
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
-
 // Configuracion
 const app = express();
 const PORT = process.env.PORT || 4000;
 const JWT_SECRET = process.env.JWT_SECRET;
 
-// --- CONFIGURACIÓN DE PATHS PARA ES MODULES ---
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
 app.set('trust proxy', 1);
 app.use(cors());
 app.use(express.json());
-
-// --- SERVIR LOS ARCHIVOS ESTÁTICOS DE REACT ---
-app.use(express.static(path.join(__dirname, 'dist')));
 
 // --- RATE LIMITING ---
 // Limita el login a 10 intentos cada 15 minutos por IP
@@ -433,11 +421,6 @@ app.delete("/api/usuarios/:id", autenticarToken, esAdmin, async (req, res) => {
   }
 });
 
-// --- CATCH-ALL PARA REACT ROUTER ---
-app.get('*path', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
-});
-
 app.listen(PORT, () => {
-  console.log(`Servidor corriendo en http://localhost:${PORT}`);
+  console.log(`Servidor corriendo en el puerto ${PORT}`);
 });

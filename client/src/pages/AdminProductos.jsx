@@ -24,7 +24,7 @@ function AdminProductos() {
   // Función para Cargar los Productos
   const fetchProductos = async () => {
     try {
-      const respuesta = await axios.get('/api/productos');
+      const respuesta = await axios.get('http://18.220.106.238:4000/api/productos');
       setProductos(respuesta.data);
     } catch (err) {
       setError('Error al cargar los productos.');
@@ -51,7 +51,7 @@ function AdminProductos() {
 
     try {
       const token = localStorage.getItem('token');
-      await axios.delete(`/api/productos/${productoAEliminar.id}`, {
+      await axios.delete(`http://18.220.106.238:4000/api/productos/${productoAEliminar.id}`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       

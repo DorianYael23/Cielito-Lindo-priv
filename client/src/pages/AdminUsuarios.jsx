@@ -27,7 +27,7 @@ function AdminUsuarios() {
       const token = localStorage.getItem('token');
       const config = { headers: { 'Authorization': `Bearer ${token}` } };
       
-      const respuesta = await axios.get('/api/usuarios', config);
+      const respuesta = await axios.get('http://18.220.106.238:4000/api/usuarios', config);
       setUsuarios(respuesta.data);
     } catch (err) {
       setError('Error al cargar los usuarios.');
@@ -52,7 +52,7 @@ function AdminUsuarios() {
     if (!usuarioAEliminar) return;
     try {
       const token = localStorage.getItem('token');
-      await axios.delete(`/api/usuarios/${usuarioAEliminar.id}`, {
+      await axios.delete(`http://18.220.106.238:4000/api/usuarios/${usuarioAEliminar.id}`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       fetchUsuarios(); // Recarga la lista

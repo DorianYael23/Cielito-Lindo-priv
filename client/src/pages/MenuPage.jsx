@@ -23,7 +23,7 @@ function MenuPage() {
           navigate('/login');
           return;
         }
-        const respuesta = await axios.get('/api/productos');
+        const respuesta = await axios.get('http://18.220.106.238:4000/api/productos');
         setProductos(respuesta.data);
       } catch (err) {
         console.error('Error al obtener productos:', err);

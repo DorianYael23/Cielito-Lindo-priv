@@ -25,7 +25,7 @@ export default function LoginPage() {
     setError(null);
 
     try {
-      const respuesta = await axios.post('/api/login', {
+      const respuesta = await axios.post('http://18.220.106.238:4000/api/login', {
         nombre_usuario,
         contrasena,
       });

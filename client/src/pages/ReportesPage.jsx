@@ -55,8 +55,8 @@ function ReportesPage() {
 
         // Cargamos los dos reportes al mismo tiempo
         const [resVentas, resProductos] = await Promise.all([
-          axios.get('/api/reportes/ventas-dia', config),
-          axios.get('/api/reportes/productos-mas-vendidos', config)
+          axios.get('http://18.220.106.238:4000/api/reportes/ventas-dia', config),
+          axios.get('http://18.220.106.238:4000/api/reportes/productos-mas-vendidos', config)
         ]);
         
         setReporte(resVentas.data);
