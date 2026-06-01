@@ -68,7 +68,7 @@ function ShoppingCart() {
       }
 
       const respuesta = await axios.post(
-        '/api/ventas',
+        'http://18.220.106.238:4000/api/ventas',
         { carrito: cartItems, total },
         { headers: { Authorization: `Bearer ${token}` } }
       );

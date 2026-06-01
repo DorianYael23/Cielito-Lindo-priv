@@ -36,14 +36,14 @@ function ProductForm({ productoAEditar, onClose, onSave }) {
 
       if (productoAEditar) {
         await axios.put(
-          `/api/productos/${productoAEditar.id}`,
+          `http://18.220.106.238:4000/api/productos/${productoAEditar.id}`,
           formData,
           config
         );
         onSave('✅ ¡Producto actualizado con éxito!'); // <-- Solo avisa
       } else {
         await axios.post(
-          '/api/productos',
+          'http://18.220.106.238:4000/api/productos',
           formData,
           config
         );

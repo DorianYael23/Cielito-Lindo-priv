@@ -46,14 +46,14 @@ function UserForm({ usuarioAEditar, onClose, onSave }) {
 
       if (isEditing) {
         await axios.put(
-          `/api/usuarios/${usuarioAEditar.id}`,
+          `http://18.220.106.238:4000/api/usuarios/${usuarioAEditar.id}`,
           dataParaEnviar,
           config
         );
         onSave('✅ ¡Usuario actualizado con éxito!'); // <-- Solo avisa
       } else {
         await axios.post(
-          '/api/register',
+          'http://18.220.106.238:4000/api/register',
           dataParaEnviar,
           config
         );
